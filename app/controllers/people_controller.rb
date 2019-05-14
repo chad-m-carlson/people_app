@@ -12,7 +12,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.new(params.require(:person).permit(:first_name, :last_name, :age, :hair_color, :eye_color, :alive))
+    @person = Person.new(person_params)
 
     if @person.save
       redirect_to people_path
@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
   def update
     @person = Person.find(params[:id])
 
-    if @person.update(params.require(:person).permit(:first_name, :last_name, :gender, :age, :hair_color, :eye_color, :alive))
+    if @person.update(person_params)
       redirect_to people_path
     else
       render :edit
@@ -38,7 +38,12 @@ class PeopleController < ApplicationController
   def destroy
   Person.find(params[:id]).destroy
   redirect_to people_path
+  end
 
+  private
+
+  def person_params
+    params.require(:person).permit(:first_name, :last_name, :gender, :age, :hair_color, :eye_color, :alive)
   end
 
 end
