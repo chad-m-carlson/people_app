@@ -1,0 +1,13 @@
+<h1>People App</h1>
+<div>
+
+  <%= link_to  "Create a New Person", new_person_path %>
+  
+  <% @people.each do |person| %>
+  <h3> <%= person.full_name %></h3>
+  <%= link_to  "Show Page", person_path(person.id) %>
+  <%= link_to  "Edit this person", edit_person_path(person.id) %>
+  <%= link_to  "Delete this person", person, method: :delete %>
+  <% end %>
+    </div>
+

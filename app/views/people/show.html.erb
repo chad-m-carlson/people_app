@@ -1,0 +1,7 @@
+<h1> <%= @person.full_name %></h1>
+<h3><%=@person.first_name %> is <%=@person.age%> years old</h3>
+<h4>Gender: <%= @person.gender%></h4>
+<h4>Hair Color: <%= @person.hair_color %></h4>
+<h4>Eye Color: <%=@person.eye_color %></h4>
+<h4>Alive: <%= @person.alive %></h4>
+<%= link_to  "Back to index", people_path %>
