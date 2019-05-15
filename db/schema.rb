@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_202517) do
+ActiveRecord::Schema.define(version: 2019_05_14_225822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2019_05_14_202517) do
     t.boolean "alive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "birth_place"
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.text "body"
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_stories_on_person_id"
+  end
+
+  add_foreign_key "stories", "people"
 end

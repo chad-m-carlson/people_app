@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+    @people = Person.by_first_name
   end
 
   def show
@@ -40,10 +40,11 @@ class PeopleController < ApplicationController
   redirect_to people_path
   end
 
+
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :gender, :age, :hair_color, :eye_color, :alive)
+    params.require(:person).permit(:first_name, :last_name, :gender, :age, :hair_color, :eye_color, :alive, :birth_place)
   end
 
 end

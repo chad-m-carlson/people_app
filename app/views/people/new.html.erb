@@ -9,7 +9,8 @@
 
 <br>
 <%= f.label :age %>
-<%= f.text_field :age %>
+<!-- <%= f.text_field :age %> -->
+<%= f.number_field :age, min: 1, max: 150%>
 
 <br>
 <%= f.label :gender %> (M or F)
@@ -21,6 +22,10 @@
 
 <%= f.label :eye_color %>
 <%= f.text_field :eye_color %>
+<br>
+
+<%= f.label :birth_place %>
+<%= f.text_field :birth_place %>
 <br>
 
   <%= f.label :alive %>

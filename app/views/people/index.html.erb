@@ -5,8 +5,8 @@
   
   <% @people.each do |person| %>
   <h3> <%= person.full_name %></h3>
-  <%= link_to  "Show Page", person_path(person.id) %>
-  <%= link_to  "Edit this person", edit_person_path(person.id) %>
+  <%= link_to  "Show this person", person_path(person.id) %>&nbsp&nbsp&nbsp
+  <%= link_to  "Edit this person", edit_person_path(person.id) %>&nbsp&nbsp&nbsp
   <%= link_to  "Delete this person", person, method: :delete %>
   <% end %>
     </div>
